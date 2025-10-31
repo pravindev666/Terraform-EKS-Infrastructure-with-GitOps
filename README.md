@@ -279,12 +279,12 @@ Set up GitHub Secrets in your repository:
 
 Ensure S3 bucket exists:
 ```bash
-aws s3 ls s3://vimal-s3-6006/
+aws s3 ls s3://pravin-s3-6666/
 ```
 
 If bucket doesn't exist, create it:
 ```bash
-aws s3 mb s3://vimal-s3-6006 --region ap-southeast-1
+aws s3 mb s3://pravin-s3-6666 --region ap-southeast-1
 ```
 
 ### 4. Initialize Terraform Locally (Optional)
@@ -366,7 +366,7 @@ data "aws_subnets" "public" {
 ```hcl
 terraform {
   backend "s3" {
-    bucket = "vimal-s3-6006"
+    bucket = "pravin-s3-666"
     key    = "EKS/terraform.tfstate"
     region = "ap-southeast-1"
   }
@@ -377,7 +377,7 @@ terraform {
 
 View current state:
 ```bash
-aws s3 cp s3://vimal-s3-6006/EKS/terraform.tfstate - | jq
+aws s3 cp s3://pravin-s3-666/EKS/terraform.tfstate - | jq
 ```
 
 ## Security Considerations
@@ -403,7 +403,7 @@ aws s3 cp s3://vimal-s3-6006/EKS/terraform.tfstate - | jq
 **Issue**: Terraform state lock error
 ```bash
 # Check S3 for lock file
-aws s3 ls s3://vimal-s3-6006/EKS/
+aws s3 ls s3://pravin-s3-666/EKS/
 ```
 
 **Issue**: GitHub Actions failing on format check
